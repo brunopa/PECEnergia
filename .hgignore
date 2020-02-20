@@ -1,0 +1,68 @@
+# Project #
+
+
+# System #
+.DS_Store
+
+# Mercurial #
+.orig
+
+# Node #
+node_modules/
+
+# Grunt build #
+dist/
+
+# Bower #
+bower_components/
+public/system/lib
+.bower-cache/
+.bower-registry/
+.bower-tmp/
+.tmp/
+
+# IDE #
+nbproject/
+.idea/
+atlassian-ide-plugin.xml
+
+syntax: glob
+
+*.suo
+*.user
+*.FileListAbsolute.txt
+*\bin\*
+*\obj\*
+*.ncb
+*.nlb
+*.aps
+*.clw
+*.pdb
+*.obj
+*.exe
+*.pch
+*.vspscc
+*.vsmdi
+*_i.c
+*_p.c
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.Cache
+*.ilk
+*.log
+*.lib
+*.sbr
+*.scc
+*.sig
+_ReSharper*\*
+TestResults\*
+desktop.ini
+backend/obj/Debug/netcoreapp2.0/project.razor.json
+backend/bin/Debug/netcoreapp2.0/backend.dll
+backend/bin/Debug/netcoreapp2.0/backend.deps.json
+backend/bin/Debug/netcoreapp2.0/backend.runtimeconfig.json
+backend/obj/Debug/netcoreapp2.0/backend.dll
+backend/bin/Debug/netcoreapp2.0/backend.runtimeconfig.dev.json
+backend/obj/Debug/netcoreapp2.0/backend.AssemblyInfo.cs

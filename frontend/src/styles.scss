@@ -1,0 +1,34 @@
+/*@import 'styles-variables';*/
+@import '../node_modules/@angular/material/theming';
+@include mat-core();
+
+@import 'themes/default-theme.scss';
+@import 'themes/light-theme.scss';
+@import 'themes/black-theme.scss';
+@import 'themes/nature-theme.scss';
+
+.default-theme {
+  @include angular-material-theme($default-theme);
+  //@include custom-components-theme($default-theme);
+}
+
+.light-theme {
+  @include angular-material-theme($light-theme);
+  //@include custom-components-theme($light-theme);
+}
+
+.black-theme {
+  @include angular-material-theme($black-theme);
+  //@include custom-components-theme($black-theme);
+}
+
+.nature-theme {
+  @include angular-material-theme($nature-theme);
+  //@include custom-components-theme($nature-theme);
+}
+
+
+body {
+  margin: 0;
+}
+.mat-tab-body-content > *{margin-top:10px;}

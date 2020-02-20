@@ -1,0 +1,7 @@
+npm install @agm/core --save
+
+npm install ngx-google-places-autocomplete
+
+npm i --save-dev @types/googlemaps??
+
+https://developers.google.com/places/web-service/autocomplete

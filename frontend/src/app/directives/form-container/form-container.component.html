@@ -1,0 +1,22 @@
+<app-master-page [showMasterPage]="showMasterPage">
+  <div layout="column" class="form-card ">
+    <mat-toolbar color="primary">
+      <span>{{header}}</span>
+      <span class="fill-remaining-space"></span>
+      <button mat-button (click)="doSave(formRef)" *ngIf="loadingSubject | async">
+        <mat-icon>save</mat-icon>
+        Salvar
+      </button>
+
+      <button mat-button (click)="doReturn(formRef)" *ngIf="loadingSubject | async">
+        <mat-icon>settings_backup_restore</mat-icon>
+        Voltar
+      </button>
+
+    </mat-toolbar>
+    <mat-progress-bar appHttpSpinner mode="buffer" color="primary"></mat-progress-bar>
+    <div class="form-fields" *ngIf="loadingSubject | async">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</app-master-page>

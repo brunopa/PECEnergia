@@ -1,0 +1,205 @@
+<form-container header="Editar Ficha" (onCancel)="cancel()" (onOk)="save()" [loadingSubject]="carregadoSubject"
+  [formRef]="formRef">
+  <form #formRef="ngForm" class="mat-app-background">
+
+
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Dados do Proprietario
+          <a mat-button (click)="openDialogProprietario({});">
+            <mat-icon>queue</mat-icon>
+          </a>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-table #tblProprietarios [dataSource]="entity.proprietarios" class="mat-elevation-z8" >
+
+          <ng-container matColumnDef="nome">
+            <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{element.proprietario.nome}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="documento">
+              <mat-header-cell *matHeaderCellDef> Documento </mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                {{element.proprietario.documento}} </mat-cell>
+            </ng-container>
+
+          <ng-container matColumnDef="edit">
+            <mat-header-cell *matHeaderCellDef class="centerAligment">Editar</mat-header-cell>
+            <mat-cell *matCellDef="let row; let i = index;" (click)="$event.stopPropagation()">
+              <a mat-button (click)="openDialogProprietario(row)">
+                <mat-icon>edit</mat-icon>
+              </a>
+            </mat-cell>
+          </ng-container>
+
+            <ng-container matColumnDef="delete">
+            <mat-header-cell *matHeaderCellDef class="centerAligment">Excluir</mat-header-cell>
+            <mat-cell *matCellDef="let row; let i = index;" (click)="$event.stopPropagation()">
+              <a mat-button (click)="excluirProprietario(row, i)">
+                <mat-icon>delete</mat-icon>
+              </a>
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="['nome', 'documento', 'edit', 'delete']">
+          </mat-header-row>
+          <mat-row
+            *matRowDef="let row; let i = index; columns: ['nome', 'documento', 'edit', 'delete'];"
+            (click)="openDialogProprietario(row, i)">
+          </mat-row>
+        </mat-table>
+      </mat-card-content>
+    </mat-card>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          Dados Imovel
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-grid-list cols="4" rowHeight="100px">
+
+          <mat-grid-tile>
+            <mat-form-field style="width:100%">
+              <input name="nome" [(ngModel)]="entity.imovel.nome" placeholder="Nome" maxlength="250" matInput
+                autocomplete="off" />
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-form-field style="width:100%">
+              <input name="situacao" [(ngModel)]="entity.imovel.situacao" placeholder="Situação" maxlength="250"
+                matInput autocomplete="off" />
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-form-field style="width:100%">
+              <input name="municipio" [(ngModel)]="entity.imovel.municipio" placeholder="Município" maxlength="250"
+                matInput autocomplete="off" />
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <list-search style="width:100%;" (onSelect)="entity.imovel.estado = $event;" path="helper/BuscarUF"
+              placeholder="Estado" display="nome" idprop="id" [selectedItem]="entity.imovel.estado"
+              [canInsertNew]=false></list-search>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-form-field style="width:100%">
+              <input name="area" [(ngModel)]="entity.imovel.area" placeholder="Área" maxlength="250" matInput
+                autocomplete="off" />
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-form-field style="width:100%">
+              <input name="matricula" [(ngModel)]="entity.imovel.matricula" placeholder="Matrícula" maxlength="250"
+                matInput autocomplete="off" />
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-form-field style="width:100%">
+              <input name="cri" [(ngModel)]="entity.imovel.cri" placeholder="CRI" maxlength="250" matInput
+                autocomplete="off" />
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-form-field style="width:100%">
+              <input name="ccir" [(ngModel)]="entity.imovel.ccir" placeholder="CCIR" maxlength="250" matInput
+                autocomplete="off" />
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-form-field style="width:100%">
+              <input name="nrf" [(ngModel)]="entity.imovel.nrf" placeholder="NRF" maxlength="250" matInput
+                autocomplete="off" />
+            </mat-form-field>
+          </mat-grid-tile>
+
+        </mat-grid-list>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          Dados Conta
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+
+        <mat-grid-list cols="4" rowHeight="100px">
+          <mat-grid-tile>
+            <mat-form-field style="width:100%">
+              <input name="banco" [(ngModel)]="entity.conta.banco" placeholder="Banco" maxlength="250" matInput
+                autocomplete="off" />
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-form-field style="width:100%">
+              <input name="espConta" [(ngModel)]="entity.conta.espConta" placeholder="Esp. Conta" maxlength="250"
+                matInput autocomplete="off" />
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-form-field style="width:100%">
+              <input name="numeroConta" [(ngModel)]="entity.conta.numeroConta" placeholder="Nº Conta" maxlength="250"
+                matInput autocomplete="off" />
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-form-field style="width:100%">
+              <input name="numeroAgencia" [(ngModel)]="entity.conta.numeroAgencia" placeholder="Nº Agência"
+                maxlength="250" matInput autocomplete="off" />
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-form-field style="width:100%">
+              <input name="titular" [(ngModel)]="entity.conta.titular" placeholder="Títular" maxlength="250" matInput
+                autocomplete="off" />
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-form-field style="width:100%">
+              <input name="documento" [(ngModel)]="entity.conta.documento" placeholder="CPF/CNPJ" maxlength="250"
+                matInput autocomplete="off" />
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-form-field style="width:100%">
+              <input name="valor" [(ngModel)]="entity.conta.valor" placeholder="Valor" maxlength="250" matInput
+                autocomplete="off" />
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-form-field style="width:100%">
+              <input name="periodicidade" [(ngModel)]="entity.conta.periodicidade" placeholder="Periodiocidade"
+                maxlength="250" matInput autocomplete="off" />
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-form-field style="width:100%">
+              <input name="nrf" [(ngModel)]="entity.conta.dataBaseCorrecao" placeholder="Data Base Correção"
+                maxlength="250" matInput autocomplete="off" />
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-card-content>
+    </mat-card>
+  </form>
+</form-container>

@@ -1,0 +1,13 @@
+<label for="file">
+  <ul style="list-style: none;padding: 0;margin: 0;">
+    <li style="text-align: center">
+      <img [src]="src" style="width:224px;height:151px;" />
+      <mat-progress-bar *ngIf="loading" class="example-margin" color="primary" mode="buffer" [value]="spinnerProgress">
+      </mat-progress-bar>
+    </li>
+    <li>
+      <input type="file" (change)="onFileChange($event)" id="file">
+      <span *ngIf="loading">{{spinnerProgress}}%</span>
+    </li>
+  </ul>
+</label>

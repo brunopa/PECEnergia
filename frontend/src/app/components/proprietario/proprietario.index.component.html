@@ -1,0 +1,8 @@
+<app-index-container [header]="'Busca de Proprietarios'" (onNew)="_new()" (onSearch)="search()" (onEdit)="edit($event)"
+  (onDelete)="delete($event)" [dataSubject]="dataSubject" showDeleteButton=true [displayedColumns]="[{ field: 'id', header: '#' }, { field: 'nome', header: 'Nome' }]"
+  [controlsRef]="[nomeRef]">
+  <mat-form-field>
+    <input matInput placeholder="Nome" [(ngModel)]="nome" #nomeRef="ngModel" required minlength="1" autocomplete="off">
+    <mat-error *ngIf="nomeRef.invalid">Minimo de 1 caracteres</mat-error>
+  </mat-form-field>
+</app-index-container>

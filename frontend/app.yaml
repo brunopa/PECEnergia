@@ -1,0 +1,12 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /
+  static_files: expomus/index.html
+  upload: expomus/index.html
+
+- url: /(.*)
+  static_files: expomus/\1
+  upload: expomus/(.*)

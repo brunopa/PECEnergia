@@ -1,0 +1,2 @@
+/*CREATE USER 'pecenergia'@'localhost' IDENTIFIED BY 'senh@123';*/
+GRANT ALL PRIVILEGES ON *.* TO 'pecenergia'@'localhost' IDENTIFIED BY 'senh@123';

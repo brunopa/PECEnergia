@@ -1,0 +1,31 @@
+<span>
+  <mat-table #table [dataSource]="dataSource" *ngIf="(dataSource||[]).length > 0;else noRows">
+    <ng-container *ngFor="let col of displayedColumns" [cdkColumnDef]="col.field">
+      <mat-header-cell *cdkHeaderCellDef>{{col.header}} </mat-header-cell>
+      <mat-cell *cdkCellDef="let row" [ngClass]="{'deleted':row['state'] == 3}">
+
+        <span *ngIf='col.closureView; else field'>
+          {{col.closureView(row[col.field])}}
+        </span>
+        <ng-template #field>
+          {{row[col.field]}}
+        </ng-template>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="tools">
+      <mat-header-cell *matHeaderCellDef class="rightAligment">Gerenciamento</mat-header-cell>
+      <mat-cell *matCellDef="let row" (click)="$event.stopPropagation()"
+        [ngClass]="{'deleted':row['state'] == 3, 'rightAligment':true}">
+        <a mat-button (click)="onRowTrash.emit(row)">
+          <mat-icon>delete</mat-icon>
+        </a>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumnsFlatTools"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumnsFlatTools;">row</mat-row>
+  </mat-table>
+  <ng-template #noRows>
+    <div style="width: 100%;text-align: center">Nenhum Registro</div>
+  </ng-template>
+</span>

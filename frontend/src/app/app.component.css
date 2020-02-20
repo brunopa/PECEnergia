@@ -1,0 +1,208 @@
+:host ::ng-deep .not_revised{
+  background-color: coral;
+}
+
+:host ::ng-deep .revised{
+  background-color:greenyellow;
+}
+
+
+:host ::ng-deep .mat-row{
+  cursor: pointer!important;
+}
+
+:host ::ng-deep .fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+
+:host ::ng-deep .mat-form-field {
+  display: block;
+}
+
+:host ::ng-deep .deleted {
+  text-decoration: line-through;
+  background-color: rgba(249, 6, 6, 0.43) !important;
+}
+
+
+:host ::ng-deep .rightAligment {
+  display: flex;
+  justify-content: flex-end;
+}
+
+:host ::ng-deep .centerAligment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:host ::ng-deep .form-fields {
+  padding: 10px;
+}
+
+:host ::ng-deep .formFieldDeleted input{
+  text-decoration: line-through;
+  background-color: rgba(249, 6, 6, 0.43) !important;
+}
+:host ::ng-deep .formFieldDeleted span{
+  text-decoration: line-through;
+  background-color: rgba(249, 6, 6, 0.43) !important;
+}
+
+:host ::ng-deep .form-card {
+  border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.56s cubic-bezier(0.25, 0.8, 0.25, 1);
+  max-width: 30%;
+  margin: 50px auto;
+}
+
+:host ::ng-deep .form-card:hover,
+:host ::ng-deep .form-card:focus {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+
+  :host ::ng-deep .form-card:focus-within {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+
+
+  :host ::ng-deep .form-actions {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 2.25rem;
+}
+
+:host ::ng-deep .form-actions .form-btn-cancel {
+    -ms-flex-order: -1;
+    order: -1;
+  }
+
+  :host ::ng-deep .form-actions::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: #999;
+    opacity: 0.3;
+  }
+
+  :host ::ng-deep .form-actions > * {
+    -ms-flex: 1;
+    flex: 1;
+    margin-top: 0;
+  }
+
+
+  :host ::ng-deep .form-btn,
+  :host ::ng-deep .form-btn-cancel,
+  :host ::ng-deep .form-btn-error {
+  background: transparent;
+  font-size: 1rem;
+  color: #fff;
+  cursor: pointer;
+  border: 1px solid transparent;
+  padding: 5px 24px;
+  margin-top: 2.25rem;
+  position: relative;
+  z-index: 0;
+  transition: transform 0.28s ease;
+  will-change: transform;
+}
+
+:host ::ng-deep .form-btn::before,
+:host ::ng-deep .form-btn::after,
+:host ::ng-deep .form-btn-cancel::before,
+:host ::ng-deep .form-btn-cancel::after,
+:host ::ng-deep .form-btn-error::before,
+:host ::ng-deep .form-btn-error::after {
+    position: absolute;
+    content: "";
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+  }
+
+  :host ::ng-deep .form-btn::before,
+  :host ::ng-deep .form-btn-cancel::before,
+  :host ::ng-deep .form-btn-error::before {
+    background: #337ab7;
+    z-index: -2;
+  }
+
+  :host ::ng-deep .form-btn::after,
+  :host ::ng-deep .form-btn-cancel::after,
+  :host ::ng-deep .form-btn-error::after {
+    background: #000;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.28s ease;
+    will-change: opacity;
+  }
+
+  :host ::ng-deep .form-btn:focus,
+  :host ::ng-deep .form-btn-cancel:focus,
+  :host ::ng-deep .form-btn-error:focus {
+    outline: none;
+  }
+
+  :host ::ng-deep .form-btn:focus::after,
+  :host ::ng-deep .form-btn:hover::after,
+  :host ::ng-deep .form-btn-cancel:focus::after,
+  :host ::ng-deep .form-btn-cancel:hover::after,
+  :host ::ng-deep .form-btn-error:focus::after,
+  :host ::ng-deep .form-btn-error:hover::after {
+      opacity: 0.3;
+    }
+
+    :host ::ng-deep .form-btn:active,
+    :host ::ng-deep .form-btn-cancel:active,
+    :host ::ng-deep .form-btn-error:active {
+    transform: translateY(1px);
+  }
+
+  :host ::ng-deep .form-btn-error::before {
+    background: #d9534f;
+  }
+
+  :host ::ng-deep .form-btn-cancel {
+  transition: color 0.28s ease, transform 0.28s ease;
+  color: #b52b27;
+  border-color: currentColor;
+  will-change: color, transform;
+}
+
+:host ::ng-deep .form-btn-cancel.-nooutline {
+    border-color: transparent;
+  }
+
+  :host ::ng-deep .form-btn-cancel::before {
+    background: #b52b27;
+    opacity: 0;
+    transition: opacity 0.28s ease;
+    will-change: opacity;
+  }
+
+  :host ::ng-deep .form-btn-cancel::after {
+    display: none;
+  }
+
+  :host ::ng-deep .form-btn-cancel:focus,
+  :host ::ng-deep .form-btn-cancel:hover {
+    color: #fff;
+  }
+
+  :host ::ng-deep .form-btn-cancel:focus::before,
+  :host ::ng-deep .form-btn-cancel:hover::before {
+      opacity: 1;
+    }
+
+  :host ::ng-deep .form-btn-block {
+  display: block;
+  width: 100%;
+  padding: 5px;
+}
+

@@ -1,0 +1,12 @@
+
+.mat-row:nth-child(even) {
+  wbackground-color: #FFF;
+}
+
+.mat-row:nth-child(odd) {
+  wbackground-color: #EEE !important;
+}
+
+.mat-row {
+  cursor: pointer
+}

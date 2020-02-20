@@ -1,0 +1,11 @@
+expomus.ddns.net:2222
+
+bruno.hung
+
+Dev34Da&a0d
+
+
+dotnet publish -c Release <<<<<<<<<<< no servidor
+ng build --prod
+
+http://192.168.0.18:82/#/

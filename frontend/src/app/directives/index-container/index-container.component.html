@@ -1,0 +1,30 @@
+<app-master-page *ngIf=showHeader>
+</app-master-page>
+  <div layout="column" class="form-card">
+    <mat-toolbar color="primary">
+      <main-menu></main-menu>
+      <span>{{header}}</span>
+      <span class="fill-remaining-space"></span>
+      <button mat-button (click)="doSearch();">
+        <mat-icon>search</mat-icon>
+        Procurar
+      </button>
+      <button mat-button (click)="onNew.emit()" *ngIf="showNewButton">
+        <mat-icon>add</mat-icon>
+        Novo
+      </button>
+    </mat-toolbar>
+    <mat-progress-bar appHttpSpinner mode="buffer" color="primary"></mat-progress-bar>
+    <div class="form-fields">
+      <form (ngSubmit)="doSearch();">
+        <ng-content></ng-content>
+      </form>
+      <br />
+    </div>
+
+    <data-collection [dataSubject]="dataSubject" [displayedColumns]="displayedColumns"
+      (onRowClick)="onEdit.emit($event.id)" (onRowPrint)="onPrint.emit($event.id)" [showSelection]="showSelection"
+      (onRowTrash)="onDelete.emit($event.id)" [showDeleteButton]="showDeleteButton" [showPrintButton]="showPrintButton"
+      (onSelectMany)="onSelectMany.emit($event)">
+    </data-collection>
+  </div>

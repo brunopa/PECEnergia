@@ -1,0 +1,9 @@
+SET GLOBAL log_output = 'TABLE';
+SET GLOBAL general_log = 'ON';
+select CAST(argument AS CHAR(10000) CHARACTER SET utf8) from mysql.general_log 
+where CAST(argument AS CHAR(10000) CHARACTER SET utf8) not like '%select%'
+and CAST(argument AS CHAR(10000) CHARACTER SET utf8) not like '%set%'
+and CAST(argument AS CHAR(10000) CHARACTER SET utf8) not like '%show%'
+and CAST(argument AS CHAR(10000) CHARACTER SET utf8) not like '%rollback%'
+order by event_time desc
+ 

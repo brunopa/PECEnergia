@@ -1,0 +1,29 @@
+<div layout="column" class="form-card">
+    <mat-toolbar color="primary">
+        <span>Login</span>
+    </mat-toolbar>
+
+    <mat-progress-bar *ngIf="loading" mode="buffer"color="primary"></mat-progress-bar>
+    <div class="form-fields">
+        <form name="form" [formGroup]="loginForm" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+
+            <mat-form-field style="width:100%">
+                <input type="text" class="form-control" #email formControlName="email" placeholder="E-mail"
+                matInput email required />
+                <mat-error *ngIf="email.invalid">E-mail inválido</mat-error>
+            </mat-form-field>
+
+            <mat-form-field style="width:100%">
+                <input type="password" class="form-control" #password formControlName="password" placeholder="Senha" 
+                matInput required/>
+                <mat-error *ngIf="password.invalid">Senha inválida</mat-error>
+            </mat-form-field>
+
+            <mat-toolbar>
+                <button class="btn btn-primary" mat-button (click)='login()'>
+                    Entrar
+                </button>
+            </mat-toolbar>
+        </form>
+    </div>
+</div>

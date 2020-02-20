@@ -1,0 +1,22 @@
+.miniImgObra{
+    max-height: 80px;
+    width: auto;
+  }
+  
+  .miniImgObra img{
+    min-height: 80px;
+    width: auto;
+    border: 1px solid #eee;
+  }
+  
+  .standardImgObra{
+    max-height: 80px;
+    width: auto;
+  }
+  
+  .standardImgObra img{
+    max-height: 500px;
+    width: auto;
+    border: 1px solid #eee;
+  }
+  

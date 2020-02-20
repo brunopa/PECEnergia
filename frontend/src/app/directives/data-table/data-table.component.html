@@ -1,0 +1,36 @@
+<mat-table #table [dataSource]="dataSource" *ngIf="hasRows">
+
+  <ng-container matColumnDef="selection" *ngIf="showSelection">
+    <mat-header-cell *matHeaderCellDef> 
+      <mat-checkbox [(ngModel)]="selecaoTodos">
+      </mat-checkbox>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let row" (click)="$event.stopPropagation()">
+      <mat-checkbox [(ngModel)]="row['selected']"></mat-checkbox>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container *ngFor="let col of displayedColumns" [cdkColumnDef]="col.field">
+    <mat-header-cell *cdkHeaderCellDef>{{col.header}} </mat-header-cell>
+    <mat-cell (click)="onRowClick.emit(row)" *cdkCellDef="let row">{{row[col.field]}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="tools">
+    <mat-header-cell *matHeaderCellDef class="rightAligment">Gerenciamento</mat-header-cell>
+    <mat-cell *matCellDef="let row" (click)="$event.stopPropagation()" class="rightAligment">
+      <button mat-button *ngIf="showPrintButton" (click)="onRowPrint.emit(row)">
+        <mat-icon>print</mat-icon>
+      </button>
+      <button mat-button *ngIf="showDeleteButton" (click)="onRowTrash.emit(row)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="displayedColumnsFlatTools"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumnsFlatTools;">row</mat-row>
+</mat-table>
+
+<a mat-button (click)="doneAll()" *ngIf="showSelection">
+    <mat-icon>done_all</mat-icon>
+    Confirmar
+  </a>

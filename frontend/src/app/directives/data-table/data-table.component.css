@@ -1,0 +1,28 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+  min-width: 300px;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+
+.mat-row:nth-child(even) {
+  /*background-color: #FFF;*/
+}
+
+.mat-row:nth-child(odd) {
+  /*background-color: #EEE !important;*/
+}
+
+.mat-row {
+  cursor: pointer
+}
+
+.rightAligment {
+  display: flex;
+  justify-content: flex-end;
+}

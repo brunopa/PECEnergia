@@ -1,0 +1,8 @@
+env: flex
+runtime: aspnetcore
+#https://sodium-sublime-655.appspot.com/api/proprietarios/5
+#gcloud app deploy --version api
+#gcloud config set project sodium-sublime-655
+#gcloud config set project uplifted-cinema-94100
+#cd bin/Release/netcoreapp2.0/publish/
+#dotnet publish -c Release /property:PublishWithAspNetCoreTargetManifest=false

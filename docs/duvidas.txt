@@ -1,0 +1,17 @@
+proprietario vem daonde
+
+marcação de mapas tem que ser do google?
+
+quais as situações possiveis?
+
+area, só conulta
+
+proprietario ou ficha pode ter varias bancos e areas?
+
+descritivo da ficha diz que pode ter varios proprietario, mas modelagem diz que não
+
+o que são/ tamanho :cri, ccir, nrf
+
+situacao imovel eh uma enumeração?
+
+fluxo: quando cadastra uma nova tem que incluir proprietario tudo de novo?

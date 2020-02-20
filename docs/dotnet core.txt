@@ -1,0 +1,108 @@
+https://docs.microsoft.com/pt-br/dotnet/core/tools/?tabs=netcore2x
+
+dotnet new console -o geeksys
+
+dotnet new classlib -o db_eris
+cd db_eris
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet add package Microsoft.AspNetCore.Cors
+
+
+dotnet new sln --name geeksys
+
+dotnet sln geeksys.sln add geeksys.csproj
+
+dotnet sln geeksys.sln add ../db_eris/db_eris.csproj
+
+dotnet add geeksys.csproj reference ../db_eris/db_eris.csproj
+
+dotnet add package EPPlus.Core
+dotnet add package TinyCsvParser
+dotnet add package Microsoft.EntityFrameworkCore
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet add package Microsoft.EntityFrameworkCore.Tools.DotNet
+
+<ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.2" />
+</ItemGroup>
+
+
+
+dotnet ef dbcontext scaffold "Server=servererpsql.livrariadavila.com.br;Database=ERIS_LIVRARIAVILA;uid=sa;pwd=L1vr@r1@2016;" Microsoft.EntityFrameworkCore.SqlServer -o Models -f -c ErisDbContext
+Scaffold-DbContext "Server=192.168.15.125;Database=ERIS_LIVRARIAVILATESTE;uid=sa;pwd=Y´$342td;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+dotnet add package System.Configuration.ConfigurationManager --version 4.4.1 
+dotnet add package Microsoft.Extensions.Configuration.Json
+
+dotnet publish -c Release -r win10-x64
+
+<Project Sdk="Microsoft.NET.Sdk">
+
+  
+	<PropertyGroup>
+    
+		<OutputType>Exe</OutputType>
+    
+		<TargetFramework>netcoreapp2.0</TargetFramework>
+	
+		<RuntimeIdentifiers>win10-x64;ubuntu.16.10-x64</RuntimeIdentifiers>
+  
+	</PropertyGroup>
+
+  
+	<ItemGroup>
+    
+		<ProjectReference Include="..\db_eris\db_eris.csproj" />
+    
+		<ProjectReference Include="..\util\util.csproj" />
+  
+	</ItemGroup>
+
+  
+	<ItemGroup>
+    
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0.2" />
+    
+		<PackageReference Include="System.Configuration.ConfigurationManager" Version="4.4.1" />
+  
+	</ItemGroup>
+
+
+</Project>
+
+
+
+
+
+
+
+MVC
+
+
+dotnet new mvc -o backend
+cd backend
+dotnet add package Microsoft.EntityFrameworkCore
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.EntityFrameworkCore.Tools.DotNet
+dotnet add package Pomelo.EntityFrameworkCore.MySql
+
+
+dotnet add package MySql.Data.EntityFrameworkCore
+
+--
+
+dotnet ef dbcontext scaffold "server=localhost;port=3306;user=root;password=191624;database=expomus" MySql.Data.EntityFrameworkCore -o DbModel -f
+
+dotnet ef dbcontext scaffold "Server=localhost;User Id=root;Password=191624;Database=expomus" "Pomelo.EntityFrameworkCore.MySql" -o DbModel
+
+
+Scaffold-DbContext "server=localhost;port=3306;user=root;password=191624;database=expomus" Pomelo.EntityFrameworkCore.MySql -OutputDir DbModel-f
+
+
+
+
+<DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.2" />
+
+
+dotnet publish --self-contained -o dist

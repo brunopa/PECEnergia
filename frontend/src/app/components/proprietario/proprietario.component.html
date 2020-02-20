@@ -1,0 +1,197 @@
+<form-container header="Editar Proprietario" (onCancel)="cancel();" (onOk)="save();" [loadingSubject]="carregadoSubject"
+  [formRef]="formRef" [showMasterPage]="false" [needsReview]="needsReview">
+  <mat-dialog-content class="mat-typography">
+    <form #formRef="ngForm" class="mat-app-background">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            Proprietário
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-grid-list cols="4" rowHeight="100px">
+
+            <mat-grid-tile>
+              <mat-form-field style="width:100%">
+                <input name="nome" [(ngModel)]="entity.nome" placeholder="Nome" maxlength="250" matInput
+                  autocomplete="off" />
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field style="width:100%">
+                <input name="nacionalidade" [(ngModel)]="entity.nacionalidade" placeholder="Nacionalidade"
+                  maxlength="250" matInput autocomplete="off" />
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field style="width:100%">
+                <input name="profissao" [(ngModel)]="entity.profissao" placeholder="Profissão" maxlength="250" matInput
+                  autocomplete="off" />
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field style="width:100%">
+                <input name="rg" [(ngModel)]="entity.rg" placeholder="RG" maxlength="15" matInput autocomplete="off" />
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field style="width:100%">
+                <input name="cpf" [(ngModel)]="entity.cpf" placeholder="CPF" maxlength="15" matInput
+                  autocomplete="off" />
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field style="width:100%">
+                <input name="estadoCivil" [(ngModel)]="entity.estadoCivil" placeholder="Estado Civil" maxlength="15"
+                  matInput autocomplete="off" />
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field style="width:100%">
+                <input name="estadoCivil" [(ngModel)]="entity.estadoCivil" placeholder="Estado Civil" maxlength="15"
+                  matInput autocomplete="off" />
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <div style='width:100%;margin-left: 30px'>
+                <input name="nascimento" style='width:70%;vertical-align: middle;' matInput [matDatepicker]="nascimento"
+                  [(ngModel)]="entity.nascimento" autocomplete="off" placeholder="Nascimento" mask="0000-00-00"
+                  appMaskDate>
+                <mat-datepicker-toggle matPrefix [for]="nascimento"></mat-datepicker-toggle>
+                <mat-datepicker #nascimento></mat-datepicker>
+              </div>
+            </mat-grid-tile>
+
+          </mat-grid-list>
+        </mat-card-content>
+      </mat-card>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            Conjugê
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-grid-list cols="4" rowHeight="100px">
+            <mat-grid-tile>
+              <mat-form-field style="width:100%">
+                <input name="nomeConjuge" [(ngModel)]="entity.nomeConjuge" placeholder="Nome Conjuge" maxlength="250"
+                  matInput autocomplete="off" />
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field style="width:100%">
+                <input name="nacionalidadeConjuge" [(ngModel)]="entity.nacionalidadeConjuge"
+                  placeholder="Nacionalidade Conjuge" maxlength="250" matInput autocomplete="off" />
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field style="width:100%">
+                <input name="profissaoConjuge" [(ngModel)]="entity.profissaoConjuge" placeholder="Profissão Conjuge"
+                  maxlength="250" matInput autocomplete="off" />
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field style="width:100%">
+                <input name="rgConjuge" [(ngModel)]="entity.rgConjuge" placeholder="RG Conjuge" maxlength="15" matInput
+                  autocomplete="off" />
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field style="width:100%">
+                <input name="cpfConjuge" [(ngModel)]="entity.cpfConjuge" placeholder="CPF Conjuge" maxlength="15"
+                  matInput autocomplete="off" />
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field style="width:100%">
+                <input name="estadoCivilConjuge" [(ngModel)]="entity.estadoCivilConjuge"
+                  placeholder="Estado Civil Conjuge" maxlength="15" matInput autocomplete="off" />
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field style="width:100%">
+                <input name="estadoCivilConjuge" [(ngModel)]="entity.estadoCivilConjuge"
+                  placeholder="Estado Civil Conjuge" maxlength="15" matInput autocomplete="off" />
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <div style='width:100%;margin-left: 30px'>
+                <input name="nascimentoConjuge" style='width:70%;vertical-align: middle;' matInput [matDatepicker]="nascimentoConjuge"
+                  [(ngModel)]="entity.nascimentoConjuge" autocomplete="off" placeholder="Nascimento Conjuge" mask="0000-00-00"
+                  appMaskDate>
+                <mat-datepicker-toggle matPrefix [for]="nascimentoConjuge"></mat-datepicker-toggle>
+                <mat-datepicker #nascimentoConjuge></mat-datepicker>
+              </div>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </mat-card-content>
+      </mat-card>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            Endereço
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-grid-list cols="4" rowHeight="100px">
+            <mat-grid-tile>
+              <mat-form-field style="width:100%">
+                <input name="endereco" [(ngModel)]="entity.endereco" placeholder="Endereço" maxlength="250" matInput
+                  autocomplete="off" />
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field style="width:100%">
+                <input name="cidade" [(ngModel)]="entity.cidade" placeholder="Cidade" maxlength="250" matInput
+                  autocomplete="off" />
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field style="width:100%">
+                <input name="bairro" [(ngModel)]="entity.bairro" placeholder="Bairro" maxlength="250" matInput
+                  autocomplete="off" />
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field style="width:100%">
+                <input name="numero" [(ngModel)]="entity.numero" placeholder="Nº" maxlength="250" matInput
+                  autocomplete="off" />
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <list-search style="width:100%;" (onSelect)="entity.estado = $event;" path="helper/BuscarUF"
+                placeholder="Estado" display="nome" idprop="id" [selectedItem]="entity.estado" [canInsertNew]=false>
+              </list-search>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field style="width:100%">
+                <input name="cep" [(ngModel)]="entity.cep" #cepRef placeholder="CEP" maxlength="9" matInput
+                  autocomplete="off" (keydown.enter)="$event.preventDefault();buscaCep(cepRef.value, entity)" />
+              </mat-form-field>
+            </mat-grid-tile>
+
+          </mat-grid-list>
+        </mat-card-content>
+      </mat-card>
+    </form>
+  </mat-dialog-content>
+</form-container>

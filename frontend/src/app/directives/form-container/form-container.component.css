@@ -1,0 +1,8 @@
+
+.form-card {
+  max-width: 98%;
+}
+
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
